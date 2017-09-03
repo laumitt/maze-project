@@ -64,15 +64,15 @@ class Maze:
             # set your position
             print("You are now at " + str(x) + ", " + str(y))
             # say your new position
-        if move == "GO EAST" and position[1] == "1":
+        elif move == "GO EAST" and position[1] == "1":
             x = x + 1
             position = Matrix[x][y]
             print("You are now at " + str(x) + ", " + str(y))
-        if move == "GO SOUTH" and position[2] == "1":
+        elif move == "GO SOUTH" and position[2] == "1":
             y = y + 1
             position = Matrix[x][y]
             print("You are now at " + str(x) + ", " + str(y))
-        if move == "GO WEST" and position[3] == "1":
+        elif move == "GO WEST" and position[3] == "1":
              x = x - 1
              position = Matrix[x][y]
              print("You are now at " + str(x) + ", " + str(y))
@@ -82,14 +82,16 @@ if __name__ == "__main__":
     position = Matrix[x][y]
     print("Welcome to The Maze. Your objective is to reach 5, 5.")
     print("You are now at " + str(x) + ", " + str(y))
+    game = "inProgress"
     # say where you start
-    while -1 < x < 6 and -1 < y < 6:
+    while game == "inProgress":
         Maze.check(Matrix[x][y])
         move = input()
         Maze.movement(move);
         if x == 5 and y == 5:
         # if you get to the bottom right corner
             print("Congrats! You won!")
+            game = "won"
             # you won
             break
             # end program

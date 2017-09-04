@@ -4,7 +4,7 @@ Matrix = [["0110", "1010", "1010", "1100", "0110", "1100"],
           ["0110", "1010", "1011", "1110", "1010", "1101"],
           ["0101", "0110", "1000", "0101", "0110", "1001"],
           ["0011", "1011", "1010", "1001", "0011", "1000"]]
-# a 5 by 5 matrix with each row numbers 0-5
+# a  6 by 6 matrix with each row numbered 0-5
 # defines each position's possible movement directions
 # at position 0, 0, you can't go north, you can go east, you can go south, you can't go west
 class Maze:

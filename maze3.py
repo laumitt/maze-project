@@ -8,56 +8,56 @@ Matrix = [["0110", "1010", "1010", "1100", "0110", "1100"],
 # defines each position's possible movement directions
 # at position 0, 0, you can't go north, you can go east, you can go south, you can't go west
 class Maze:
-    global x
-    global y
-    global position
-    def check(position):
-        if position[0] == "1":
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+        self.position = Matrix[self.x][self.y]
+    def check(self):
+        if self.position[0] == "1":
             print("You can GO NORTH.")
-        if position[1] == "1":
+        if self.position[1] == "1":
             print("You can GO EAST.")
-        if position[2] == "1":
+        if self.position[2] == "1":
             print("You can GO SOUTH.")
-        if position[3] == "1":
+        if self.position[3] == "1":
             print("You can GO WEST.")
         # say where you can go
-    def movement(move):
-        global x
-        global y
-        global position
-        if move == "GO NORTH" and position[0] == "1":
+    def movement(self, move):
+        self.x
+        self.y
+        self.position
+        if move == "GO NORTH" and self.position[0] == "1":
         # if you said go north and you can go north
-            y = y - 1
+            self.y = self.y - 1
             # move the y coordinate 1 north
-            position = Matrix[x][y]
+            self.position = Matrix[self.x][self.y]
             # set your position
-            print("You are now at " + str(x) + ", " + str(y))
+            print("You are now at " + str(self.x) + ", " + str(self.y))
             # say your new position
-        elif move == "GO EAST" and position[1] == "1":
-            x = x + 1
-            position = Matrix[x][y]
-            print("You are now at " + str(x) + ", " + str(y))
-        elif move == "GO SOUTH" and position[2] == "1":
-            y = y + 1
-            position = Matrix[x][y]
-            print("You are now at " + str(x) + ", " + str(y))
-        elif move == "GO WEST" and position[3] == "1":
-             x = x - 1
-             position = Matrix[x][y]
-             print("You are now at " + str(x) + ", " + str(y))
+        elif move == "GO EAST" and self.position[1] == "1":
+            self.x = self.x + 1
+            self.position = Matrix[self.x][self.y]
+            print("You are now at " + str(self.x) + ", " + str(self.y))
+        elif move == "GO SOUTH" and self.position[2] == "1":
+            self.y = self.y + 1
+            self.position = Matrix[self.x][self.y]
+            print("You are now at " + str(self.x) + ", " + str(self.y))
+        elif move == "GO WEST" and self.position[3] == "1":
+            self.x = self.x - 1
+            self.position = Matrix[self.x][self.y]
+            print("You are now at " + str(self.x) + ", " + str(self.y))
 
 if __name__ == "__main__":
-    x, y = 0, 0
-    position = Matrix[x][y]
+    maze = Maze()
     print("Welcome to The Maze. Your objective is to reach 5, 5.")
-    print("You are now at " + str(x) + ", " + str(y))
+    print("You are now at " + str(maze.x) + ", " + str(maze.y))
     game = "inProgress"
     # say where you start
     while game == "inProgress":
-        Maze.check(Matrix[x][y])
+        maze.check()
         move = input()
-        Maze.movement(move);
-        if x == 5 and y == 5:
+        maze.movement(move);
+        if maze.x == 5 and maze.y == 5:
         # if you get to the bottom right corner
             print("Congrats! You won!")
             game = "won"
